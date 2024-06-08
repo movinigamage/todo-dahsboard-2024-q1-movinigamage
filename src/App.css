@@ -1,0 +1,423 @@
+body, h2, h1{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-layout{
+    width: 100%;
+    height: 70px;
+}
+
+.navbar {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px; /* Adjust spacing around the profile picture */
+}
+
+
+/* Sidebar.css */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+    background-color: #663399; /* Ensure background color is consistent */
+    z-index: 1000;
+}
+
+.expanded {
+    width: 250px;
+}
+
+.collapsed {
+    width: 0; /* Collapsed state to hide completely */
+    overflow: hidden; /* Prevent content from leaking outside */
+}
+
+.menu-icon {
+    position: fixed; /* Fixed position to make it visible */
+    top: 10px;
+    right: 10px; /* Position to the right to prevent overlap */
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's on top */
+}
+
+/*.sidebar-header, .sidebar-content {*/
+/*    color: white;*/
+/*    padding: 20px;*/
+/*    display: block; !* Make sure it's always block *!*/
+/*    opacity: 1;*/
+/*    transition: opacity 0.3s ease-in-out;*/
+/*}*/
+
+.sidebar-header {
+    align-items: center;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #5a2975;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-content {
+    padding: 15px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Full width for expanded */
+    }
+    .collapsed {
+        width: 0; /* Hide completely */
+    }
+    .menu-icon {
+        position: fixed; /* Adjust if needed */
+        right: 20px; /* Maintain on the right side */
+        top: 10px; /* Ensure it's visible in mobile view */
+        left: auto; /* Reset left property */
+    }
+}
+
+
+/* WelcomeMessage.css */
+.welcome-message {
+    position: relative; /* Adjust position to fixed to make it overlay if necessary */
+    top: 10px; /* Adjust top spacing to not overlap with the navbar */
+    left: 0;
+    right: 0; /* Ensure it spans the width of the viewport */
+    margin: 1%; /* Center the message box horizontally */
+    width: 90%; /* Adjust width to not span the entire width of the viewport */
+    max-width: 1020px; /* Maximum width to maintain aesthetics on wider screens */
+    padding: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: start; /* Align items to the start */
+    justify-content: center;
+    border-radius: 8px;
+
+}
+@media (max-width: 1500px) {
+    .welcome-message {
+        width: auto;
+        margin-right: 0;
+        margin-left: 15%;
+    }
+}
+
+.close-button {
+    align-self: flex-end; /* Position the close button at the end of the flex container */
+    font-size: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.message-content {
+    text-align: left;
+    margin-top: 10px; /* Provide spacing between title and the content */
+}
+
+.message-content h1 {
+    font-size: 24px;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.message-content p {
+    font-size: 16px;
+    color: #666;
+    margin: 8px 0 16px; /* Adjust margins for better spacing */
+}
+
+.info-link {
+    font-size: 16px;
+    color: #DA70D6; /* Light pink color for the link */
+    text-decoration: none;
+    font-weight: bold; /* Make link bold to stand out */
+}
+
+.info-link:hover {
+    text-decoration: underline;
+}
+
+.welcome-message.full-width {
+    width: 87%;
+    max-width: none;
+}
+.welcome-message.with-sidebar {
+    width: 90%;
+    max-width: 1550px;
+}
+
+@media (max-width: 1500px) {
+    .welcome-message.full-width {
+        width: 80%;
+        max-width: none;
+        margin-left: 0;
+    }
+}
+@media (max-width: 1600px) {
+    .welcome-message.with-sidebar {
+        width: 90%;
+        max-width: 1200px;
+        margin-left: 1.5%;
+    }
+}
+@media (max-width: 1600px) {
+    .welcome-message.full-width {
+        width: 97%;
+        max-width: none;
+        margin-left: 0;
+    }
+}
+
+/* TaskList.css */
+.task-list {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1020px;
+    width: calc(100% - 250px); /* Adjust width based on sidebar */
+    transition: width 0.3s ease-in-out;
+}
+
+.task-list.full-width {
+    width: calc(100% - 70px); /* Adjust width for collapsed sidebar */
+}
+
+.task-list h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.task-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.task-list .task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.task-list .task .priority {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.task-list .task .priority.low {
+    background-color: #f8e71c; /* Yellow */
+}
+
+.task-list .task .priority.medium {
+    background-color: #f5a623; /* Orange */
+}
+
+.task-list .task .priority.high {
+    background-color: #d0021b; /* Red */
+}
+
+.task-list .task .task-name {
+    flex: 1;
+    margin: 0 20px;
+}
+
+.task-list .task .status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.task-list .task .status.done {
+    background-color: #e0f3e7;
+    color: #27ae60;
+}
+
+.task-list .task .status.in-progress {
+    background-color: #fff4e5;
+    color: #f5a623;
+}
+
+.task-list .task .date {
+    color: #999;
+}
+
+.task-list .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.task-list .pagination button {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.task-list .pagination button.active {
+    background-color: #d0021b;
+    color: white;
+    border: none;
+}
+
+/* App.css */
+.content {
+    padding: 0;
+    margin-left: 250px; /* Adjust based on sidebar */
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.content.full-width {
+    margin-left: 70px; /* Adjust for collapsed sidebar */
+}
+
+@media (max-width: 430px) {
+    .content.full-width {
+        margin-left: 0px; /* Adjust for collapsed sidebar */
+    }
+
+}
+
+/*component layout*/
+.component-layout{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    margin: 30px 10px 0 10px;
+}
+
+@media (max-width: 768px) {
+    .component-layout{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* ActivityFeed.css */
+.activity-feed {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+    transition: width 0.3s ease-in-out;
+    height: 50%;
+}
+
+.activity-feed h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.activity-feed ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.activity-feed .activity {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.activity-feed .activity:last-child {
+    border-bottom: none;
+}
+
+.activity-feed .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.activity-feed .activity-details {
+    flex: 1;
+}
+
+.activity-feed .activity-details p {
+    margin: 0;
+}
+
+.activity-feed .activity-details p strong {
+    color: #333;
+}
+
+.activity-feed .activity-link {
+    color: #da70d6;
+    text-decoration: none;
+}
+
+.activity-feed .activity-link:hover {
+    text-decoration: underline;
+}
+
+.activity-feed .time {
+    color: #999;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* TasksPriorities.css */
+.tasks-priorities {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 39%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease-in-out;
+}
+
+.tasks-priorities h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.chart-container {
+    position: relative;
+    height: 250px; /* Adjust height as necessary */
+    width: 100%; /* Ensure the container spans the full width */
+}
+
+@media (max-width: 768px) {
+    .activity-feed {
+        margin-top: 20px;
+    }
+}
